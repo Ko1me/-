@@ -1,18 +1,18 @@
-﻿Console.WriteLine("Введите число 1");
-int number1 = Convert.ToInt32((Console.ReadLine()));
-//Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
-Console.WriteLine("Введите число 2");
-int number2 = Convert.ToInt32((Console.ReadLine()));
-Console.WriteLine("Введите число 3");
-int number3 = Convert.ToInt32((Console.ReadLine()));
-int max = number1;
-if(number2>number1)
+﻿// Напишите программу, которая с помощью деления выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+Console.WriteLine("Введите число 1");
+int number = Convert.ToInt32((Console.ReadLine()));
+int first = number;
+if(number<100)
 {
-    max=number2;
+    Console.WriteLine("Третьей цифры нет");
 }
-if(number3>max)
+else
 {
-    max=number3;
+    for(int i=0;first>999;i++)
+{
+    number = number/10;
+    first= number;
 }
-Console.Write("max=");
-Console.Write(max);
+int number3 =first%10;
+Console.WriteLine(number3);
+}
