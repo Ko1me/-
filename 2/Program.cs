@@ -1,18 +1,16 @@
-﻿// Напишите программу, которая с помощью деления выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
-Console.WriteLine("Введите число 1");
-int number = Convert.ToInt32((Console.ReadLine()));
-int first = number;
-if(number<100)
-{
-    Console.WriteLine("Третьей цифры нет");
-}
-else
-{
-    for(int i=0;first>999;i++)
-{
-    number = number/10;
-    first= number;
-}
-int number3 =first%10;
-Console.WriteLine(number3);
-}
+﻿// Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+Random rand = new Random();
+int aX = rand.Next(-10,10);
+int aY = rand.Next(-10,10);
+int aZ = rand.Next(-10,10);
+int bX = rand.Next(-10,10);
+int bY = rand.Next(-10,10);
+int bZ = rand.Next(-10,10);
+Console.WriteLine($"A({aX},{aY},{aZ})");
+Console.WriteLine($"B({bX},{bY},{bZ})");
+Console.WriteLine(Math.Pow(bX-aX,2));
+Console.WriteLine(Math.Pow(bY-aY,2));
+Console.WriteLine(Math.Pow(bZ-aZ,2));
+Console.WriteLine(Math.Pow(bX-aX,2)+Math.Pow(bY-aY,2)+Math.Pow(bZ-aZ,2));
+Console.Write("Разница между координатами = ");
+Console.Write(Math.Sqrt(Math.Pow(bX-aX,2)+Math.Pow(bY-aY,2)+Math.Pow(bZ-aZ,2)));
