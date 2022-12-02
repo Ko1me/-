@@ -1,12 +1,30 @@
-﻿// Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
-Console.WriteLine("Введите число");
-int number = Convert.ToInt32((Console.ReadLine()));
-int number2 = number;
+﻿//Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов с нечётными индексами.
+int size = 6;
+int[] numbers = new int[size];
+Fillarray(numbers);
+PrintArray(numbers);
 int sum = 0;
-while(number>=1)
+for(int i=1;i<size;i+=2)
 {
-    number2=number%10;
-    sum=sum+number2;
-    number=number/10;
+    sum=sum+numbers[i];
 }
-Console.WriteLine($"Сумма цифр в числе = {sum}");
+Console.Write($"Сумма элементов с нечётными индексами={sum}");
+void Fillarray(int[] nums)
+{
+    Random rand = new Random();
+    int lenght = nums.Length;
+    for(int i=0;i<lenght;i++)
+    {
+        nums[i]= rand.Next(-10,10);
+    }
+}
+void PrintArray(int[]nums)
+{
+    int lenght = nums.Length;
+    Console.Write("binnary array = [");
+    for(int i=0;i<lenght;i++)
+    {
+        Console.Write(nums[i] +", ");
+    }
+    Console.WriteLine("]");
+}

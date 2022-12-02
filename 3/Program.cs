@@ -1,34 +1,42 @@
-﻿// Напишите программу, которая задаёт массив из 8 случайных целых чисел и выводит отсортированный по модулю массив.
-Random randomizer = new Random();
- int size = 8;
- int[] numbers = new int[size];
-Console.Write("binnary array = [");
- for(int i=0;i<8;i++)
+﻿// Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+int size = 4;
+double[] numbers = new double[size];
+Fillarray(numbers);
+PrintArray(numbers);
+double min = numbers[0];
+double max = numbers[0];
+double diff = 0;
+for(int i=1;i<size;i++)
 {
-    numbers[i]= randomizer.Next(-9,9);
-     Console.Write(numbers[i] +",");
-    }
- Console.WriteLine("]");
- for(int x=0;x<8;x++)
- {
-    for(int i=x;i<8;i++)
+    if(numbers[i]>max)
     {
-        if(Math.Abs(numbers[x])>Math.Abs(numbers[i]))
-        {
-            int t = numbers[i];
-            numbers[i]=numbers[x];
-            numbers[x]= t;
-        }
+        max=numbers[i];
     }
- }
-Console.Write("binnary array = [");
-Console.Write(numbers[0] +",");
-Console.Write(numbers[1] +",");
-Console.Write(numbers[2] +",");
-Console.Write(numbers[3] +",");
-Console.Write(numbers[4] +",");
-Console.Write(numbers[5] +",");
-Console.Write(numbers[6] +",");
-Console.Write(numbers[7] +",");
-Console.WriteLine("]");
+    else if(numbers[i]<min)
+    {
+        min=numbers[i];
+    }
+}
+diff = max-min;
+Console.WriteLine($"Разница между макс и мин ={diff}");
 
+
+void Fillarray(double[] nums)
+{
+    Random rand = new Random();
+    int lenght = nums.Length;
+    for(int i=0;i<lenght;i++)
+    {
+        nums[i]= rand.Next(-10,10)+rand.NextDouble();
+    }
+}
+void PrintArray(double[]nums)
+{
+    int lenght = nums.Length;
+    Console.Write("binnary array = [");
+    for(int i=0;i<lenght;i++)
+    {
+        Console.Write(nums[i] +", ");
+    }
+    Console.WriteLine("]");
+}
