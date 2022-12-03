@@ -1,30 +1,14 @@
-﻿//Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов с нечётными индексами.
-int size = 6;
-int[] numbers = new int[size];
-Fillarray(numbers);
-PrintArray(numbers);
-int sum = 0;
-for(int i=1;i<size;i+=2)
-{
-    sum=sum+numbers[i];
-}
-Console.Write($"Сумма элементов с нечётными индексами={sum}");
-void Fillarray(int[] nums)
-{
-    Random rand = new Random();
-    int lenght = nums.Length;
-    for(int i=0;i<lenght;i++)
-    {
-        nums[i]= rand.Next(-10,10);
-    }
-}
-void PrintArray(int[]nums)
-{
-    int lenght = nums.Length;
-    Console.Write("binnary array = [");
-    for(int i=0;i<lenght;i++)
-    {
-        Console.Write(nums[i] +", ");
-    }
-    Console.WriteLine("]");
-}
+﻿//Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+Console.WriteLine("введите значение b1");
+double b1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите число k1");
+double k1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите значение b2");
+double b2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите число k2");
+double k2 = Convert.ToInt32(Console.ReadLine());
+
+double x = (-b2 + b1)/(-k1 + k2);
+double y = k2 * x + b2;
+
+Console.WriteLine($"две прямые пересекутся в точке:{x}, Y: {y}");

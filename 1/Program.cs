@@ -1,36 +1,13 @@
-﻿//Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
-int size = 4;
-int[] numbers = new int[size];
+﻿//Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+int M = 7;
 int sum = 0;
-Fillarray(numbers);
-PrintArray(numbers);
-for(int i=0;i<size;i++)
+for(int i = 0;i<M;i++)
 {
-    if(numbers[i]%2==0)
+    Console.WriteLine("введите число");
+    int numbers = Convert.ToInt32(Console.ReadLine());
+    if(numbers>0)
     {
         sum=sum+1;
     }
 }
-Console.WriteLine($"Количесвтво чётных чисел в массиве равно={sum}");
-
-
-
-void Fillarray(int[] nums)
-{
-    Random rand = new Random();
-    int lenght = nums.Length;
-    for(int i=0;i<lenght;i++)
-    {
-        nums[i]= rand.Next(100,1000);
-    }
-}
-void PrintArray(int[]nums)
-{
-    int lenght = nums.Length;
-    Console.Write("binnary array = [");
-    for(int i=0;i<lenght;i++)
-    {
-        Console.Write(nums[i] +", ");
-    }
-    Console.WriteLine("]");
-}
+Console.WriteLine($"Количество чисел больше 0 = {sum}");
