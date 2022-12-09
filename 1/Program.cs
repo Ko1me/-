@@ -1,13 +1,36 @@
-﻿//Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
-int M = 7;
-int sum = 0;
-for(int i = 0;i<M;i++)
+﻿// Задайте двумерный массив размером m×n, заполненный случайными вещественными числами, округлёнными до одного знака.
+int m = 3;
+int n = 4;
+double[,]numbers = new double[m, n];
+Fillarray(numbers,-9,10);
+PrintArray(numbers);
+
+
+void Fillarray(double[,] nums,int minValue,int maxValue)
 {
-    Console.WriteLine("введите число");
-    int numbers = Convert.ToInt32(Console.ReadLine());
-    if(numbers>0)
+    Random rand = new Random();
+    int rows = nums.GetLength(0);
+    int columns = nums.GetLength(1);
+    for(int i=0;i<rows;i++)
     {
-        sum=sum+1;
+        for(int j = 0; j < columns; j++)
+        { 
+            nums[i,j] = Math.Round(rand.Next(-10,10)+rand.NextDouble(),1);
+        }
+    }
+    
+}
+void PrintArray(double[,]nums)
+{
+    int rows = nums.GetLength(0);
+    int columns = nums.GetLength(1);
+    for(int i=0;i<rows;i++)
+    {
+        Console.Write("binnary array = [");
+        for(int j = 0; j < columns; j++)
+        { 
+            Console.Write(nums[i,j] +", ");
+        }
+        Console.WriteLine("]");
     }
 }
-Console.WriteLine($"Количество чисел больше 0 = {sum}");

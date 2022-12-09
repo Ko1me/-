@@ -1,14 +1,47 @@
-﻿//Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
-Console.WriteLine("введите значение b1");
-double b1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("введите число k1");
-double k1 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("введите значение b2");
-double b2 = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("введите число k2");
-double k2 = Convert.ToInt32(Console.ReadLine());
+﻿// Напишите программу, которая на вход принимает индексы элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+int m = 7;
+int n = 4;
+int[,]numbers = new int[m, n];
+Fillarray(numbers,0,10);
+PrintArray(numbers);
 
-double x = (-b2 + b1)/(-k1 + k2);
-double y = k2 * x + b2;
-
-Console.WriteLine($"две прямые пересекутся в точке:{x}, Y: {y}");
+void Fillarray(int[,] nums,int minValue,int maxValue)
+{
+    Random rand = new Random();
+    int rows = nums.GetLength(0);
+    int columns = nums.GetLength(1);
+    for(int i=0;i<rows;i++)
+    {
+        for(int j = 0; j < columns; j++)
+        { 
+            nums[i,j]= rand.Next(minValue,maxValue);
+        }
+    }
+    
+}
+void PrintArray(int[,]nums)
+{
+    int rows = nums.GetLength(0);
+    int columns = nums.GetLength(1);
+    for(int i=0;i<rows;i++)
+    {
+        Console.Write("binnary array = [");
+        for(int j = 0; j < columns; j++)
+        { 
+            Console.Write(nums[i,j] +", ");
+        }
+        Console.WriteLine("]");
+    }
+}
+Console.WriteLine("Введите строки");
+int rows = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите столбцы");
+int columns = Convert.ToInt32(Console.ReadLine());
+if(rows>numbers.GetLength(0)-1|columns>numbers.GetLength(1)-1)
+{
+    Console.WriteLine("Такого элемента нет");
+}
+else
+{
+    Console.WriteLine(numbers[rows,columns]);
+}
