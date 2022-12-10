@@ -1,12 +1,28 @@
-﻿// Задайте двумерный массив размером m×n, заполненный случайными вещественными числами, округлёнными до одного знака.
-int m = 3;
+﻿// Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+int m = 4;
 int n = 4;
-double[,]numbers = new double[m, n];
-Fillarray(numbers,-9,10);
+int[,]numbers = new int[m, n];
+Fillarray(numbers,0,20);
+PrintArray(numbers);
+int rows = numbers.GetLength(0);
+int columns = numbers.GetLength(1);
+for(int i=0;i<rows;i++)
+    {
+        for(int j = 0; j < columns; j++)
+        { 
+            for(int x=0; x < columns;x++)
+                {
+                    if((numbers[i,x])<(numbers[i,j]))
+                        {
+                           (numbers[i,x],numbers[i,j])=(numbers[i,j],numbers[i,x]);
+                        }
+                }
+        }
+    }
+Console.WriteLine();
 PrintArray(numbers);
 
-
-void Fillarray(double[,] nums,int minValue,int maxValue)
+void Fillarray(int[,] nums,int minValue,int maxValue)
 {
     Random rand = new Random();
     int rows = nums.GetLength(0);
@@ -15,12 +31,12 @@ void Fillarray(double[,] nums,int minValue,int maxValue)
     {
         for(int j = 0; j < columns; j++)
         { 
-            nums[i,j] = Math.Round(rand.Next(-10,10)+rand.NextDouble(),1);
+            nums[i,j] =rand.Next(minValue,maxValue);
         }
     }
     
 }
-void PrintArray(double[,]nums)
+void PrintArray(int[,]nums)
 {
     int rows = nums.GetLength(0);
     int columns = nums.GetLength(1);
