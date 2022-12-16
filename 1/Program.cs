@@ -1,52 +1,18 @@
-﻿// Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
-int m = 4;
-int n = 4;
-int[,]numbers = new int[m, n];
-Fillarray(numbers,0,20);
-PrintArray(numbers);
-int rows = numbers.GetLength(0);
-int columns = numbers.GetLength(1);
-for(int i=0;i<rows;i++)
-    {
-        for(int j = 0; j < columns; j++)
-        { 
-            for(int x=0; x < columns;x++)
-                {
-                    if((numbers[i,x])<(numbers[i,j]))
-                        {
-                           (numbers[i,x],numbers[i,j])=(numbers[i,j],numbers[i,x]);
-                        }
-                }
-        }
-    }
-Console.WriteLine();
-PrintArray(numbers);
-
-void Fillarray(int[,] nums,int minValue,int maxValue)
-{
-    Random rand = new Random();
-    int rows = nums.GetLength(0);
-    int columns = nums.GetLength(1);
-    for(int i=0;i<rows;i++)
-    {
-        for(int j = 0; j < columns; j++)
-        { 
-            nums[i,j] =rand.Next(minValue,maxValue);
-        }
-    }
+﻿// Задайте значения M и N. Напишите рекурсивный метод, который выведет все натуральные числа кратные 3-ём в промежутке от M до N.
+Random rand = new Random();
+int m = rand.Next(0,2);
+Console.WriteLine(m );
+int n = rand.Next(0,20);
+Console.WriteLine(n);
+int max = Math.Max(m,n);
+int min = Math.Min(m,n);
+method();
+void method()
+{   
+    min++;
+    if(min==max)return;
     
-}
-void PrintArray(int[,]nums)
-{
-    int rows = nums.GetLength(0);
-    int columns = nums.GetLength(1);
-    for(int i=0;i<rows;i++)
-    {
-        Console.Write("binnary array = [");
-        for(int j = 0; j < columns; j++)
-        { 
-            Console.Write(nums[i,j] +", ");
-        }
-        Console.WriteLine("]");
-    }
+    if(min%3==0)
+    Console.Write($"{min},");
+    method();
 }
